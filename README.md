@@ -35,7 +35,14 @@ $$MDS = -\frac{1}{\log_{2}(256)} \sum_{i=1}^{256} P_i \log_{2}(P_i)$$
 We recommend using **Mamba** for faster dependency resolution:
 
 ```bash
+
 # Create environment
+
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+
 mamba create -n fragmentomics python=3.9 pysam numpy scipy matplotlib pandas seaborn tqdm
 
 mamba activate fragmentomics
