@@ -45,6 +45,8 @@ conda install pysam
 
 mamba create -n fragmentomics python=3.9 pysam numpy scipy matplotlib pandas seaborn tqdm
 
+mamba install scikit-learn scipy matplotlib seaborn pandas
+
 mamba activate fragmentomics
 
 2. Validation with Mock Data
