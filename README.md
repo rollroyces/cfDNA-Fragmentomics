@@ -38,10 +38,10 @@ We recommend using **Mamba** for faster dependency resolution:
 
 # Create environment
 
-conda config --add channels defaults
 conda config --add channels bioconda
 conda config --add channels conda-forge
 conda config --set channel_priority strict
+conda install pysam
 
 mamba create -n fragmentomics python=3.9 pysam numpy scipy matplotlib pandas seaborn tqdm
 
