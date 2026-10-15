@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 from scipy.fft import rfft, rfftfreq
 
 def plot_fragment_profile(sizes, motif_counts):
