@@ -3,15 +3,15 @@ import numpy as np
 
 def generate_mock_bam(output_path, n_reads=5000):
     """生成具有 167bp 峰值與 10bp 週期性的模擬 cfDNA BAM"""
-    header = {'HD': {'VN': '1.0'}, 'SQ':}
-    
+    header = {'HD': {'VN': '1.0'}, 'SQ': [{'SN': 'chr1', 'LN': 1000000}]}
+
     with pysam.AlignmentFile(output_path, "wb", header=header) as out:
         for i in range(n_reads):
             # 模擬 167bp 核心峰值 + 10bp 週期性震盪 [2]
             if np.random.rand() > 0.3:
                 isize = int(np.random.normal(167, 5))
             else:
-                isize = int(np.random.choice())
+                isize = int(np.random.choice(np.arange(100, 400)))
             
             start = np.random.randint(1000, 900000)
             

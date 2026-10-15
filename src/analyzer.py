@@ -1,16 +1,17 @@
 import pysam
 import numpy as np
+import itertools
 from collections import Counter
 
 class FragmentomicsEngine:
     def __init__(self, bam_path, fasta_path):
         self.bam = pysam.AlignmentFile(bam_path, "rb")
         self.fasta = pysam.FastaFile(fasta_path)
-        self.motifs_256 =
+        self.motifs_256 = [''.join(combo) for combo in itertools.product('ACGT', repeat=4)]
 
     def process_region(self, chrom, start, end):
-        sizes =
-        motifs =
+        sizes = []
+        motifs = []
         
         for read in self.bam.fetch(chrom, start, end):
             # 1. 嚴格過濾：MAPQ >= 30, 必須是 Proper Pair [1, 5]
